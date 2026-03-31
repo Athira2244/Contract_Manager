@@ -1,0 +1,96 @@
+package com.example.contract.taskmanager.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "emp_task_time")
+public class EmpTaskTime {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "time_id")
+    private Integer timeId;
+
+    @Column(name = "emp_fkey", nullable = false)
+    private Integer empFkey;
+
+    @Column(name = "task_fkey", nullable = false)
+    private Integer taskFkey;
+
+    @Column(name = "start_time", nullable = false)
+    private LocalDateTime startTime;
+
+    @Column(name = "end_time", nullable = false)
+    private LocalDateTime endTime;
+
+    @Column(name = "duration_minutes", nullable = false)
+    private Integer durationMinutes;
+
+    @Column(name = "comment")
+    private String comment;
+
+    @Column(name = "created_date")
+    private LocalDateTime createdDate = LocalDateTime.now();
+
+    @Column(name = "emp_name")
+    private String empName;
+
+    // getters & setters
+
+    public String getEmpName() {
+        return empName;
+    }
+
+    public void setEmpName(String empName) {
+        this.empName = empName;
+    }
+
+    public Integer getEmpFkey() {
+        return empFkey;
+    }
+
+    public void setEmpFkey(Integer empFkey) {
+        this.empFkey = empFkey;
+    }
+
+    public Integer getTaskFkey() {
+        return taskFkey;
+    }
+
+    public void setTaskFkey(Integer taskFkey) {
+        this.taskFkey = taskFkey;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public Integer getDurationMinutes() {
+        return durationMinutes;
+    }
+
+    public void setDurationMinutes(Integer durationMinutes) {
+        this.durationMinutes = durationMinutes;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+}
